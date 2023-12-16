@@ -34,6 +34,47 @@ const amy = {
   isAmbassador: false,
 }
 
-const prices = [34, 5, 2]
+const vanessa = {
+  name: "Vanessa",
+  lastName: "Pisati",
+  isAmbassador: false,
+}
+
+const nicola = {
+  name: "Nicola",
+  lastName: "Ferrari",
+  isAmbassador: true,
+}
+
+const giulia = {
+  name: "Giulia",
+  lastName: "Bianchi",
+  isAmbassador: true,
+}
+
+const prices = [34, 5, 2, 180, 150, 100]
 const shippingCost = 50
 let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
+
+//Creazione degli ARRAY
+
+let utenti = [marco, paul, amy]
+utenti.push(vanessa, nicola, giulia)
+console.log(utenti);
+
+let ambassador = []
+console.log(ambassador)
+
+for (let i=0; i<utenti.length; i++) {
+  if (utenti[i].isAmbassador == true){
+    console.log(utenti[i].name.valueOf() + " è Ambassador")
+    ambassador.push(utenti[i]);
+  } else {
+    console.log(utenti[i].name.valueOf() + utenti[i].lastName.valueOf() + " non è Ambassador")
+  };
+}
+
+// Calcolo del carrello
+
+let carrello = 0;
+

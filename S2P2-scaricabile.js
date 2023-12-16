@@ -76,21 +76,36 @@ for (let i=0; i<utenti.length; i++) {
 
 // Calcolo del carrello
 
-let carrello = 0;
+function carrello () {
+  let carrello = 0;
+  for (i=0; i<prices.length; i++) {
+    carrello += prices[i]
+  }
 
-for (let i=0; i<prices.length; i++) {
-  carrello += prices[i]
+  if (utenti.isAmbassador===true){
+    carrello *= 0,7;
+  }
+
+  return carrello
 }
 
-/*let carrelloAmbassador = carrello-((carrello*30)/100)
-
-for (let i=0; i<utenti.length; i++){
-if (utenti[i].isAmbassador == true) {
-  console.log("Complimenti " + utenti[i].name + " hai diritto a uno sconto del 30%! Il totale del tuo carrello è di: " + carrelloAmbassador);
-} else {
-  console.log("Mi dispiace " + utenti[i].name + ", non hai diritto allo sconto del 30%. Il totale del tuo carrello è di: " + carrello)
-}}*/
-  
+let totaleCarrello = carrello();
 
 
-//let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!
+function spedizione () {
+
+  if (totaleCarrello<100) {
+    carrello += 50;
+  }
+
+  return spedizione
+
+}
+
+let totale = carrello() + spedizione()
+
+
+
+
+let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!
+console.log(utenteCheEffettuaLAcquisto)

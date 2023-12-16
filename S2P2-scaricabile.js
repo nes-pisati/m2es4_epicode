@@ -3,6 +3,7 @@
 /*
 Oggi il tuo compito è creare la logica per un sito di e-commerce che deve supportare sconti extra per utenti speciali.
 A partire da una lista di prezzi, un utente e un costo di spedizione l'algoritmo deve determinare il costo totale del carrello.
+
 ATTENZIONE! Gli argomenti di questa settimana sono cruciali per lo svolgimento di un lavoro di un developer (il 90% del dati che maneggerai saranno array di oggetti!!) quindi 
 assicurati di COMPRENDERE la logica. Se ti trovi in difficolta', scrivi ad un membro del teaching staff! :) 
 
@@ -52,9 +53,8 @@ const giulia = {
   isAmbassador: true,
 }
 
-const prices = [34, 5, 2, 180, 150, 100]
+const prices = [50, 50]
 const shippingCost = 50
-let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
 
 //Creazione degli ARRAY
 
@@ -78,3 +78,19 @@ for (let i=0; i<utenti.length; i++) {
 
 let carrello = 0;
 
+for (let i=0; i<prices.length; i++) {
+  carrello += prices[i]
+}
+
+/*let carrelloAmbassador = carrello-((carrello*30)/100)
+
+for (let i=0; i<utenti.length; i++){
+if (utenti[i].isAmbassador == true) {
+  console.log("Complimenti " + utenti[i].name + " hai diritto a uno sconto del 30%! Il totale del tuo carrello è di: " + carrelloAmbassador);
+} else {
+  console.log("Mi dispiace " + utenti[i].name + ", non hai diritto allo sconto del 30%. Il totale del tuo carrello è di: " + carrello)
+}}*/
+  
+
+
+//let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!

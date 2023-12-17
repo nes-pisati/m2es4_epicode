@@ -56,7 +56,7 @@ const giulia = {
 const prices = [50, 50]
 const shippingCost = 50
 
-//Creazione degli ARRAY
+//CREAZIONE DEGLI ARRAY
 
 let utenti = [marco, paul, amy]
 utenti.push(vanessa, nicola, giulia)
@@ -67,45 +67,41 @@ console.log(ambassador)
 
 for (let i=0; i<utenti.length; i++) {
   if (utenti[i].isAmbassador == true){
-    console.log(utenti[i].name.valueOf() + " è Ambassador")
+    console.log(utenti[i].name.valueOf() + " " + utenti[i].lastName.valueOf() + " è Ambassador")
     ambassador.push(utenti[i]);
   } else {
-    console.log(utenti[i].name.valueOf() + utenti[i].lastName.valueOf() + " non è Ambassador")
+    console.log(utenti[i].name.valueOf() + " " + utenti[i].lastName.valueOf() + " non è Ambassador")
   };
 }
 
-// Calcolo del carrello
+//ALGORITMO CARRELLO
 
-function carrello () {
-  let carrello = 0;
-  for (i=0; i<prices.length; i++) {
-    carrello += prices[i]
-  }
+//function carrello() {
 
-  if (utenti.isAmbassador===true){
-    carrello *= 0,7;
-  }
-
-  return carrello
+let carrello = 0;
+for (i=0; i<prices.length; i++) {
+  carrello += prices[i];
 }
 
-let totaleCarrello = carrello();
-
-
-function spedizione () {
-
-  if (totaleCarrello<100) {
-    carrello += 50;
-  }
-
-  return spedizione
-
+if (utenti[i].isAmbassador == true) {
+  carrello *= 0.7;
 }
 
-let totale = carrello() + spedizione()
+//return carrello
+  
+//}
 
+//let totaleCarrello = carrello();
 
+let spedizione = 0
+if (carrello<100) {
+  spedizione = 50;
+} 
 
+let totale = carrello + spedizione
 
-let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!
-console.log(utenteCheEffettuaLAcquisto)
+for(i=0; i<utenti.length; i++) {
+console.log(utenti[i].name.valueOf() + " il prezzo che devi pagare è di: " + totale)
+}
+
+//let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!

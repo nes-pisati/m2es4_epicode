@@ -56,6 +56,8 @@ const giulia = {
 const prices = [50, 50]
 const shippingCost = 50
 
+let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!
+
 //CREAZIONE DEGLI ARRAY
 
 let utenti = [marco, paul, amy]
@@ -76,24 +78,28 @@ for (let i=0; i<utenti.length; i++) {
 
 //ALGORITMO CARRELLO
 
-//function carrello() {
-
 let carrello = 0;
 for (i=0; i<prices.length; i++) {
   carrello += prices[i];
 }
 
-if (utenti[i].isAmbassador == true) {
-  carrello *= 0.7;
+//let carrelloAmbassador = carrello - ((carrello*30)/100);
+// qui avevo provato la strada di creare una variabile esterna che calcolasse il carrello degli ambassador per assegnarla successivamente nel controllo IF
+
+console.log(carrello)
+//console.log(carrelloAmbassador) 
+
+for (i=0; i<utenti.length; i++) {
+  if (utenti[i].isAmbassador == true) {
+    carrello = 15; // il problema è qui. Se utilizzo numeri assegnati (esempio: 15 e 5) mi tiene la differenza dei due carrelli, ma se uso il calcolo per estrarre il 70% (o assegno la variabile carrelloAmbassador nell'altra prova che ho fatto) mi prende questo valore anche nell'else
+    console.log(utenti[i].name.valueOf() + " " + carrello + " ciao") // questo console.log l'avevo fatto per verificare che effettivamente mi estraesse i 3 utenti con valore "isAmbassador" e funziona, quindi li estrae dall'Array.
+  } else {
+    carrello = 5;
+    console.log(utenti[i].name.valueOf() + " " + carrello)
+  } 
 }
 
-//return carrello
-  
-//}
-
-//let totaleCarrello = carrello();
-
-let spedizione = 0
+/*let spedizione = 0;
 if (carrello<100) {
   spedizione = 50;
 } 
@@ -102,6 +108,6 @@ let totale = carrello + spedizione
 
 for(i=0; i<utenti.length; i++) {
 console.log(utenti[i].name.valueOf() + " il prezzo che devi pagare è di: " + totale)
-}
+}*/
 
-//let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!
+

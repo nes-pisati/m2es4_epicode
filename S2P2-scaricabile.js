@@ -35,50 +35,64 @@ const amy = {
   isAmbassador: false,
 }
 
-const vanessa = {
-  name: "Vanessa",
-  lastName: "Pisati",
-  isAmbassador: false,
-}
-
-const nicola = {
-  name: "Nicola",
-  lastName: "Ferrari",
-  isAmbassador: true,
-}
-
-const giulia = {
-  name: "Giulia",
-  lastName: "Bianchi",
-  isAmbassador: true,
-}
 
 const prices = [50, 50]
 const shippingCost = 50
 
-let utenteCheEffettuaLAcquisto = vanessa //cambia il valore qui per provare se il tuo algoritmo funziona!
+//let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
 
 //CREAZIONE DEGLI ARRAY
 
-let utenti = [marco, paul, amy]
-utenti.push(vanessa, nicola, giulia)
-console.log(utenti);
+let users = [marco, paul, amy]
+
+users.push({name: "Vanessa", lastName: "Pisati", isAmbassador: false});
+users.push({name: "Nicola", lastName: "Bianchi", isAmbassador: true});
+users.push({name: "Giulia", lastName: "Verdi", isAmbassador: true});
+
+console.log(users);
 
 let ambassador = []
 console.log(ambassador)
 
-for (let i=0; i<utenti.length; i++) {
-  if (utenti[i].isAmbassador == true){
-    console.log(utenti[i].name.valueOf() + " " + utenti[i].lastName.valueOf() + " è Ambassador")
-    ambassador.push(utenti[i]);
+for (let i=0; i<users.length; i++) {
+  if (users[i].isAmbassador == true){
+    console.log(users[i].name.valueOf() + " " + users[i].lastName.valueOf() + " è Ambassador")
+    ambassador.push(users[i]);
   } else {
-    console.log(utenti[i].name.valueOf() + " " + utenti[i].lastName.valueOf() + " non è Ambassador")
+    console.log(users[i].name.valueOf() + " " + users[i].lastName.valueOf() + " non è Ambassador")
   };
 }
 
 //ALGORITMO CARRELLO
 
-let carrello = 0;
+let listPrice = 0;
+for (i=0; i<prices.length; i++) {
+  listPrice += prices[i];
+}
+
+const actualUser = users[1];
+
+function calculateCart(listPrice, users, shippingCost) {
+  if (users.isAmbassador==true){
+    listPrice = listPrice*0.7;
+  }
+
+  if(listPrice>100){
+    shippingCost = 0;
+  }
+
+  return listPrice + shippingCost
+};
+
+for (i=0; i<users.length; i++) {
+  console.log(users.isAmbassador)
+}
+
+const total = calculateCart(listPrice, actualUser, shippingCost);
+console.log("Il totale da pagare è di: " + total + "€");
+
+
+/*let carrello = 0;
 for (i=0; i<prices.length; i++) {
   carrello += prices[i];
 }
